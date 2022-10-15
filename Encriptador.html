@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="utf-8" content="html,css,js"/>
+    <link rel="stylesheet" href="Style.css" />
+    <title>Encriptador</title>
+</head>
+
+
+<body>
+
+    <header>
+        <h1>Encriptador</h1>
+    </header>
+
+    <main>       
+
+
+        <textarea name="txtInput" cols="40" rows="30" tabindex="1" required autofocus ></textarea>
+
+        <!--<p>Solo letas minusculas y sin acentos</p>-->   
+        <button name="btnEncriptar" tabindex="2">Encriptar</button>
+        <button name="btnDesencriptar" id="btnDesencriptar" tabindex="3">Desencriptar</button>
+
+        <textarea name="txtOutput" id="txtOutput" cols="40" rows="30" tabindex="4"></textarea>
+
+        <button name="copiar" id="idCopiar" tabindex="5">Copiar</button>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+
+        function mostrar(pNuevoMensaje)
+        {
+            txtAreaOutput.value = pNuevoMensaje;
+        }
+
+        function codificar(nuevoTexto)
+        {
+            let mensajeAr = [], res="";
+            mensajeAr = nuevoTexto;
+            
+            for (let i = 0; i < mensajeAr.length; i++)
+            {
+
+                if (mensajeAr[i] === "a") {
+                    res+= "ai";
+                }
+                else if (mensajeAr[i] === "e")
+                {
+                    res += "enter";
+                }
+                else if (mensajeAr[i] === "i") {
+                    res += "imes";
+                }
+                else if (mensajeAr[i] === "o") {
+                    res += "ober";
+                }
+                else if (mensajeAr[i] === "u") {
+                    res += "ufat";
+                }
+                else
+                {
+                    res += mensajeAr[i];
+                }
+            }
+
+            return res;
+        }
+
+        function decodificar(pNuevoTexto)
+        {
+            let mensajeAr = [], res = "";
+            mensajeAr = pNuevoTexto;
+            for (let i = 0; i < mensajeAr.length; i++)
+            {
+
+                if (mensajeAr[i] === "a") {
+                    res += "a"; i++;
+                }
+                else if (mensajeAr[i] === "e") {
+                    res += "e"; i += 4;
+                }
+                else if (mensajeAr[i] === "i") {
+                    res += "i"; i += 3;
+                }
+                else if (mensajeAr[i] === "o") {
+                    res += "o"; i += 3;
+                }
+                else if (mensajeAr[i] === "u") {
+                    res += "u"; i += 3;
+                }
+                else {
+                    res += mensajeAr[i];
+                }
+            }
+
+            return res;
+        }
+
+        function encriptar()
+        {
+            let mensaje = "";
+            mensaje = codificar(txtAreainput.value);
+            mostrar(mensaje);
+            txtAreainput.value = "";
+        }
+
+      function desencriptar()
+        {
+          let mensaje = "";
+          mensaje = decodificar(txtAreainput.value);
+          mostrar(mensaje);
+          txtAreainput.value = "";
+        }
+
+        function copiar()
+        {
+            txtAreainput.value = txtAreaOutput.value;
+            txtAreaOutput.value = "";
+        }
+
+
+        var txtAreainput = document.querySelector("textarea");
+        var txtAreaOutput = document.getElementById("txtOutput");
+
+        var botonEncriptar = document.querySelector("button");
+        var botonDesencriptar = document.getElementById("btnDesencriptar");
+        var botonCopiar = document.getElementById("idCopiar");
+
+        botonEncriptar.onclick = encriptar;
+        botonDesencriptar.onclick = desencriptar;
+        botonCopiar.onclick = copiar;
+        
+
+
+
+    </script>
+
+</body>
+</html>
