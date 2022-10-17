@@ -1,3 +1,72 @@
-﻿body
+﻿
+html{font-size:10px;}
+
+body
 {
+    background:linear-gradient(black,gray);   
 }
+
+h1{ margin:2em; }
+
+h1:hover{cursor:pointer;}
+
+.sector_text textarea {
+    margin: 0em 5em;
+    display: inline;
+    text-indent: 1em;
+    font-size: 20px;
+    font-weight: bold;
+    color: #227cae;
+}
+
+.sector_text p {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#txtInput {
+    border-radius: 10px 10px 20px 200px;
+    box-shadow: -10px -10px 10px 10px black;
+    background: linear-gradient(white,black);
+}
+
+#txtOutput {
+    border-radius: 10px 10px 200px 20px;
+    box-shadow: 10px -10px 10px 10px black;
+    background-image: url("imagenes/muñeco.png");
+    background-repeat:no-repeat;
+}
+
+.sector_text p {
+    display: compact;
+    margin: 0 0 0 100px;
+}
+
+.sector_botones {
+    margin: 2em;
+}
+
+ button
+{
+    border-radius:10px;
+    color:white;
+    padding:20px 40px;
+    display:inline-block;
+    margin:0 50px;
+    background-color:darkblue;
+    border-color:mediumblue;
+    font-weight:bold;
+    font-size:2em;
+    color:gray;
+    transition:800ms;
+}
+
+ button:hover
+ {
+     box-shadow:0 0 10px 10px #227cae;
+     cursor:pointer;
+ }
+
+
+
+#idCopiar{position:relative; margin:0 0 0 200px;}

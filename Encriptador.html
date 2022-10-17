@@ -2,7 +2,8 @@
 
 <html lang="es">
 <head>
-    <meta charset="utf-8" content="html,css,js"/>
+    <meta charset="utf-8" content="html,css,js" />
+    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="Style.css" />
     <title>Encriptador</title>
 </head>
@@ -10,22 +11,32 @@
 
 <body>
 
-    <header>
-        <h1>Encriptador</h1>
+    <header>        
+        <h1> <a href="Encriptador.html"><img src="imagenes/logoalura.png" /></a>  </h1>
     </header>
 
     <main>       
 
+        <section class="sector_text">
 
-        <textarea name="txtInput" cols="40" rows="30" tabindex="1" required autofocus ></textarea>
+            
+            <textarea name="txtInput" id="txtInput" cols="35" rows="17" tabindex="1" placeholder="ingrese el texto aca" required autofocus maxlength="100";></textarea>
+            <textarea name="txtOutput" id="txtOutput" cols="35" rows="17" tabindex="4" maxlength="100">  </textarea>
 
-        <!--<p>Solo letas minusculas y sin acentos</p>-->   
-        <button name="btnEncriptar" tabindex="2">Encriptar</button>
-        <button name="btnDesencriptar" id="btnDesencriptar" tabindex="3">Desencriptar</button>
+            <p>Solo letras minúsculas y sin acentos.❕</p>
 
-        <textarea name="txtOutput" id="txtOutput" cols="40" rows="30" tabindex="4"></textarea>
+        </section>
 
-        <button name="copiar" id="idCopiar" tabindex="5">Copiar</button>
+        <section class="sector_botones">
+
+            <div class="botones">
+                <button name="btnEncriptar" id="btnEncriptar" tabindex="2">Encriptar</button>
+                <button name="btnDesencriptar" id="btnDesencriptar" tabindex="3">Desencriptar</button>
+                <button name="copiar" id="idCopiar" tabindex="5">Copiar</button>
+            </div>
+
+        </section>
+       
 
     </main>
 
