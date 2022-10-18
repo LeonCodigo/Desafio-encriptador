@@ -3,24 +3,25 @@
 <html lang="es">
 <head>
     <meta charset="utf-8" content="html,css,js" />
+    <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="Style.css" />
+
     <title>Encriptador</title>
 </head>
 
 
 <body>
 
-    <header>        
+    <header>
         <h1> <a href="Encriptador.html"><img src="imagenes/logoalura.png" /></a>  </h1>
     </header>
 
-    <main>       
-
+    <main>
         <section class="sector_text">
 
-            
-            <textarea name="txtInput" id="txtInput" cols="35" rows="17" tabindex="1" placeholder="ingrese el texto aca" required autofocus maxlength="100";></textarea>
+
+            <textarea name="txtInput" id="txtInput" cols="35" rows="17" tabindex="1" placeholder="ingrese el texto aca" autofocus maxlength="100" ;></textarea>
             <textarea name="txtOutput" id="txtOutput" cols="35" rows="17" tabindex="4" maxlength="100">  </textarea>
 
             <p>Solo letras minúsculas y sin acentos.❕</p>
@@ -36,34 +37,41 @@
             </div>
 
         </section>
-       
+
 
     </main>
 
     <footer>
-
+        <p>©Copyrigth León Germán-2022.</p>
     </footer>
+
 
     <script>
 
-        function mostrar(pNuevoMensaje)
-        {
+        function mostrar(pNuevoMensaje) {
             txtAreaOutput.value = pNuevoMensaje;
         }
 
-        function codificar(nuevoTexto)
-        {
-            let mensajeAr = [], res="";
+        function verificador(e) {
+            if (e.key.match(/[a-zñç\s]/) === null) {
+
+                alert("CUIDADO: Solo minusculas y sin acento");
+                // Si la tecla pulsada no es la correcta, eliminado la pulsación
+                e.preventDefault();
+            }
+
+        }
+
+        function codificar(nuevoTexto) {
+            let mensajeAr = [], res = "";
             mensajeAr = nuevoTexto;
-            
-            for (let i = 0; i < mensajeAr.length; i++)
-            {
+
+            for (let i = 0; i < mensajeAr.length; i++) {
 
                 if (mensajeAr[i] === "a") {
-                    res+= "ai";
+                    res += "ai";
                 }
-                else if (mensajeAr[i] === "e")
-                {
+                else if (mensajeAr[i] === "e") {
                     res += "enter";
                 }
                 else if (mensajeAr[i] === "i") {
@@ -75,8 +83,7 @@
                 else if (mensajeAr[i] === "u") {
                     res += "ufat";
                 }
-                else
-                {
+                else {
                     res += mensajeAr[i];
                 }
             }
@@ -84,12 +91,10 @@
             return res;
         }
 
-        function decodificar(pNuevoTexto)
-        {
+        function decodificar(pNuevoTexto) {
             let mensajeAr = [], res = "";
             mensajeAr = pNuevoTexto;
-            for (let i = 0; i < mensajeAr.length; i++)
-            {
+            for (let i = 0; i < mensajeAr.length; i++) {
 
                 if (mensajeAr[i] === "a") {
                     res += "a"; i++;
@@ -114,29 +119,29 @@
             return res;
         }
 
-        function encriptar()
-        {
+        function encriptar() {
             let mensaje = "";
             mensaje = codificar(txtAreainput.value);
+            txtAreaOutput.style.backgroundImage = "none";
             mostrar(mensaje);
             txtAreainput.value = "";
         }
 
-      function desencriptar()
-        {
-          let mensaje = "";
-          mensaje = decodificar(txtAreainput.value);
-          mostrar(mensaje);
-          txtAreainput.value = "";
+        function desencriptar() {
+            let mensaje = "";
+            mensaje = decodificar(txtAreainput.value);
+            mostrar(mensaje);
+            txtAreainput.value = "";
         }
 
-        function copiar()
-        {
-            txtAreainput.value = txtAreaOutput.value;
+
+
+        function copiar() {
+            navigator.clipboard.writeText(txtAreaOutput.value);
             txtAreaOutput.value = "";
         }
 
-
+        document.querySelector("textarea").addEventListener("keypress", verificador);
         var txtAreainput = document.querySelector("textarea");
         var txtAreaOutput = document.getElementById("txtOutput");
 
@@ -147,11 +152,13 @@
         botonEncriptar.onclick = encriptar;
         botonDesencriptar.onclick = desencriptar;
         botonCopiar.onclick = copiar;
-        
+
 
 
 
     </script>
 
 </body>
+
+
 </html>

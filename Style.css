@@ -1,9 +1,8 @@
 ﻿
 html{font-size:10px;}
 
-body
-{
-    background:linear-gradient(black,gray);   
+body {
+    background: linear-gradient(black,gray);
 }
 
 h1{ margin:2em; }
@@ -70,3 +69,35 @@ h1:hover{cursor:pointer;}
 
 
 #idCopiar{position:relative; margin:0 0 0 200px;}
+
+footer p{color:black; text-align:center;font-weight:bold;position:center; font-size:1.2em;}
+
+footer{margin:70px;}
+
+@media screen and (max-width:480px)
+{
+    button, .sector_text textarea {
+        display: block;
+        position: absolute;
+        margin: 0px 0px;
+    }
+
+    #btnEncriptar
+    {
+        top:495px;
+        left:100px;
+    }
+    #btnDesencriptar {
+        top: 564px;
+        left: 85px;
+    }
+    #txtOutput {
+        top: 650px;
+    }
+    #idCopiar 
+    {
+        top: 905px;  
+        margin:0px 100px;
+    }
+
+}
